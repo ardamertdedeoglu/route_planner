@@ -28,6 +28,18 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        // Read --dart-define values passed by Flutter
+        val dartDefines = project.properties["dart-defines"]?.toString()
+            ?.split(",")
+            ?.associate {
+                val decoded = String(java.util.Base64.getDecoder().decode(it))
+                val parts = decoded.split("=", limit = 2)
+                parts[0] to (parts.getOrElse(1) { "" })
+            } ?: emptyMap()
+
+        manifestPlaceholders["googleMapsApiKey"] =
+            dartDefines["GOOGLE_MAPS_API_KEY"] ?: ""
     }
 
     buildTypes {

@@ -1,1 +1,1 @@
-const String googleMapsApiKey = 'AIzaSyAfIKSD-UXC-Tn-KPoUx7YtSB69K7UhK7c';
+const String googleMapsApiKey = String.fromEnvironment('GOOGLE_MAPS_API_KEY');

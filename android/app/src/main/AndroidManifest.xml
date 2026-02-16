@@ -5,9 +5,10 @@
         android:label="Route Planner"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <!-- API key injected via --dart-define=GOOGLE_MAPS_API_KEY=... -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAfIKSD-UXC-Tn-KPoUx7YtSB69K7UhK7c"/>
+            android:value="${googleMapsApiKey}"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

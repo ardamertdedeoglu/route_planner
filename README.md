@@ -1,16 +1,40 @@
-# route_planner
+# Route Planner
 
-A new Flutter project.
+Flutter trip planner with Google Maps integration.
 
-## Getting Started
+## Setup
 
-This project is a starting point for a Flutter application.
+1. **Get dependencies:**
 
-A few resources to get you started if this is your first Flutter project:
+   ```bash
+   flutter pub get
+   ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. **Configure Google Maps API Key:**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+   Enable these APIs in [Google Cloud Console](https://console.cloud.google.com/google/maps-apis):
+   - Maps SDK for Android / iOS
+   - Places API
+   - Directions API
+
+3. **Run the app with your API key:**
+   ```bash
+   flutter run --dart-define=GOOGLE_MAPS_API_KEY=YOUR_KEY_HERE
+   ```
+
+## How It Works
+
+The API key is injected via `--dart-define` at build time:
+
+- **Dart code** reads it via `String.fromEnvironment('GOOGLE_MAPS_API_KEY')`
+- **AndroidManifest.xml** receives it through Gradle manifest placeholders
+- **No secrets in source code** — nothing to leak via git
+
+## Features
+
+- Create trips with named stages (e.g. Kahvaltı, Müze)
+- Add multiple place candidates per stage and choose between them
+- Search places via Google Places Autocomplete
+- View routes on map with markers and polylines
+- Export navigation to Google Maps app
+- Local storage with SharedPreferences

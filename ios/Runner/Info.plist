@@ -54,5 +54,7 @@
 		<string>https</string>
 		<string>comgooglemaps</string>
 	</array>
+	<key>GMSApiKey</key>
+	<string>AIzaSyAfIKSD-UXC-Tn-KPoUx7YtSB69K7UhK7c</string>
 </dict>
 </plist>
